@@ -1,0 +1,76 @@
+const initServer = async () => {
+    const express = require('express');
+    const cors = require('cors');
+    const morgan = require('morgan');
+    const cookieParser = require('cookie-parser');
+    const logger = require('./utils/logger/logger');
+    const { handleInternalError } = require('./utils/internal-handlers/index');
+    const app = express();
+    const corsOptions = {
+        credentials: true,
+        origin: 'http://localhost:8081',
+    };
+
+    app.use(cors(corsOptions));
+    app.use(cookieParser());
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: true }));
+    app.use(morgan('dev'));
+
+    require('dotenv').config();
+
+    app.get('/', (req, res) => {
+        res.json({ message: "Welcome to Nodegy." });
+    });
+
+    const db = require('./models');
+
+    try {
+        const connected = await db.mongoose
+            .connect(db.url, {
+                useCreateIndex: true,
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+                useFindAndModify: false
+            });
+
+        if (connected) {
+            logger.info('Connected to the database.');
+        };
+    } catch (err) {
+        handleInternalError({
+            message: 'Cannot connect to the database',
+            err: err,
+            service: 'Server'
+        });
+        process.exit();
+    };
+
+    require('./routes/index')(app);
+
+    const PORT = process.env.PORT;
+
+    try {
+        const appListen = await app.listen(PORT);
+        if (appListen) {
+            logger.info(`Server is running on port ${PORT}`);
+        };
+
+    } catch (err) {
+        handleInternalError({
+            message: 'Cannot connect to the server',
+            err: err,
+            service: 'Server'
+        });
+        process.exit();
+    };
+
+    const initializeRolesInDb = (require('./services/roles/init-roles-in-db'));
+
+    initializeRolesInDb();
+
+    const runMaintenance = require('./utils/maintenance/index');
+    await runMaintenance();
+};
+
+initServer();
