@@ -74,5 +74,3 @@ const initServer = async () => {
 };
 
 initServer();
-
-console.log('test')
