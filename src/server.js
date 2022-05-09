@@ -74,4 +74,3 @@ const initServer = async () => {
 };
 
 initServer();
-const test23 = 'one';
