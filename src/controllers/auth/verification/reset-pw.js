@@ -1,8 +1,8 @@
-const db = require("../../../models");
+const db = require('../../../models');
 const User = db.user;
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt');
 const { handleResponse } = require('../../_utils/response-handlers/index');
-const service = "verification reset pw";
+const service = 'verification reset pw';
 
 module.exports = async (req, res) => {
     let confirm;
@@ -18,12 +18,12 @@ module.exports = async (req, res) => {
         if (!err) {
             const vCode = user.vCode;
             if (vCode != req.body.vCode) {
-                err = 'invalid verification code'
+                err = 'invalid verification code';
                 status = 400;
             };
         };
         if (!err) {
-            confirm = await User.findByIdAndUpdate(user._id, { password: bcrypt.hashSync(req.body.password, 1), })
+            confirm = await User.findByIdAndUpdate(user._id, { password: bcrypt.hashSync(req.body.password, 1), });
         };
 
     } catch (error) {

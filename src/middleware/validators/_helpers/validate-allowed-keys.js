@@ -3,7 +3,7 @@ module.exports = (body, allowedKeys) => {
         allowedKeys.includes(key))) {
         return {
             isValid: false,
-            msg: `Invalid content. Allowed: ${allowedKeys.join(", ")}.`
+            msg: `Invalid content. Allowed: ${allowedKeys.join(', ')}.`
         };
     };
 

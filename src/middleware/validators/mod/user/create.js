@@ -1,11 +1,11 @@
 const { handleResponse } = require('../../../../controllers/_utils/response-handlers/index');
 const { vKeyValues, vRequiredKeys } = require('../../_helpers/index');
-const service = "mod create user";
+const service = 'mod create user';
 const requiredKeys = ['username', 'email', 'password', 'timezone'];
 
 module.exports = async (req, res, next) => {
     let valid = true;
-    let errMsg = "";
+    let errMsg = '';
 
     let validate = vRequiredKeys(req.body, requiredKeys);
     if (!validate.isValid) {

@@ -1,7 +1,7 @@
 const db = require('../../../models');
 const Webhook = db.webhook;
 const { handleResponse } = require('../../_utils/response-handlers/index');
-const service = "mod create incoming webhook";
+const service = 'mod create incoming webhook';
 
 module.exports = async (req, res) => {
     const eid = req.cookies.eid;

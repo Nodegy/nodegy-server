@@ -46,7 +46,7 @@ module.exports = mongoose => {
             alerts: [
                 {
                     type: mongoose.Schema.Types.ObjectId,
-                    ref: "Alert"
+                    ref: 'Alert'
                 }
             ],
             conditionsReady: {

@@ -5,12 +5,12 @@ module.exports = (app) => {
     ];
 
     app.use(function (req, res, next) {
-        res.set("Access-Control-Allow-Origin", ALLOWED_ORIGINS)
+        res.set('Access-Control-Allow-Origin', ALLOWED_ORIGINS);
         res.set(
-            "Access-Control-Allow-Headers",
-            "Origin, Content-Type, Accept"
+            'Access-Control-Allow-Headers',
+            'Origin, Content-Type, Accept'
         );
-        res.set("Access-Control-Allow-Credentials", true)
+        res.set('Access-Control-Allow-Credentials', true);
         next();
     });
 

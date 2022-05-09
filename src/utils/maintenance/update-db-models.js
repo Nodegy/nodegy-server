@@ -16,7 +16,7 @@ exports.updateUsers = async (logger) => {
                 password: existingUser.password,
                 roles: existingUser.roles,
                 preferences: existingUser.preferences,
-            })
+            });
 
             const confirmDelete = await User.findByIdAndRemove(existingUser._id);
 

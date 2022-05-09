@@ -18,7 +18,7 @@ module.exports = async (symbol, name, posAction, message, address) => {
             text: `Strategy: ${name}\nAction: ${posAction}\nSymbol: ${symbol}Message: ${message}`
         };
 
-        await transporter.sendMail(mailOptions)
+        await transporter.sendMail(mailOptions);
 
 
     } catch (err) {

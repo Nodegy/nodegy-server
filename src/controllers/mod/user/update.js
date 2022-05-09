@@ -1,6 +1,6 @@
 const db = require('../../../models');
 const User = db.user;
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt');
 const { handleResponse } = require('../../_utils/response-handlers/index');
 const service = 'mod update user';
 

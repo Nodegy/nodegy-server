@@ -1,11 +1,11 @@
 const { handleResponse } = require('../../../../controllers/_utils/response-handlers/index');
 const { vKeyValues, vRequiredKeys } = require('../../_helpers/index');
-const service = "Delete Addresses";
+const service = 'Delete Addresses';
 const requiredKeys = ['_ids'];
 
 module.exports = async (req, res, next) => {
     let valid = true;
-    let errMsg = "";
+    let errMsg = '';
     let validate;
 
     if (valid) {

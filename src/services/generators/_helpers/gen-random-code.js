@@ -1,6 +1,6 @@
 module.exports = (maxChars) => {
     const characters = 'abcdefghijklmnpqrstuvwxyz123456789';
-    let result = "";
+    let result = '';
     const charsLength = characters.length;
 
     for (let i = 0; i < maxChars; i++) {

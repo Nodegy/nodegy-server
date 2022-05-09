@@ -1,12 +1,12 @@
-const config = require("../../config/auth.config");
-const db = require("../../models");
+const config = require('../../config/auth.config');
+const db = require('../../models');
 const User = db.user;
 const Role = db.role;
 const SignupKey = db.signupKey;
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const { genVCode } = require("../../services/generators/index");
-const sendVerificationEmail = require("../../services/email/send-verification-code");
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const { genVCode } = require('../../services/generators/index');
+const sendVerificationEmail = require('../../services/email/send-verification-code');
 const { handleResponse } = require('../_utils/response-handlers/index');
 const service = 'Signup';
 const frontEndIsBeta = process.env.FRONT_END_BETA_SIGNUPS == 'true';
@@ -18,8 +18,8 @@ module.exports = async (req, res) => {
     let status;
 
     try {
-        const vCode = genVCode()
-        const role = await Role.findOne({ name: "user" });
+        const vCode = genVCode();
+        const role = await Role.findOne({ name: 'user' });
         const user = new User({
             eid: '',
             username: req.body.username,
@@ -52,7 +52,7 @@ module.exports = async (req, res) => {
         };
 
         if (!err) {
-            confirm = await sendVerificationEmail(user.email, vCode)
+            confirm = await sendVerificationEmail(user.email, vCode);
 
             let token = jwt.sign({ id: user.id }, config.secret, {
                 expiresIn: 3 * 24 * 60 * 60 * 1000,

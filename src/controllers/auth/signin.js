@@ -1,9 +1,9 @@
-const config = require("../../config/auth.config");
-const db = require("../../models");
+const config = require('../../config/auth.config');
+const db = require('../../models');
 const User = db.user;
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
-const { notificationsStoreLoader, stratStoreLoader } = require("../loaders/index");
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const { notificationsStoreLoader, stratStoreLoader } = require('../loaders/index');
 const { handleResponse } = require('../_utils/response-handlers/index');
 const service = 'Signin';
 
@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
                     { username: req.body.usernameOrEmail },
                     { email: req.body.usernameOrEmail }
                 ]
-        }).populate("roles", "-__v");
+        }).populate('roles', '-__v');
 
         if (!user) {
             err = 'user not found';

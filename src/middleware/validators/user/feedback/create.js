@@ -1,14 +1,14 @@
 const { handleResponse } = require('../../../../controllers/_utils/response-handlers/index');
 const { vKeyValues, vRequiredKeys } = require('../../_helpers/index');
-const service = "create feedback";
+const service = 'create feedback';
 const requiredKeys = ['email', 'subject', 'body'];
 
 module.exports = async (req, res, next) => {
     let valid = true;
-    let errMsg = "";
+    let errMsg = '';
 
     if (!req.cookies.id) {
-        errMsg = "Invalid cookies. Require id.";
+        errMsg = 'Invalid cookies. Require id.';
         valid = false;
     };
 

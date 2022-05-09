@@ -1,12 +1,12 @@
 const { handleResponse } = require('../../../../controllers/_utils/response-handlers/index');
 const { vKeyValues, vRequiredKeys, vAllowedKeys } = require('../../_helpers/index');
-const service = "Mod Update User";
+const service = 'Mod Update User';
 const requiredKeys = ['_id'];
 const allowedKeys = [...requiredKeys, 'password', 'email', 'preferences'];
 
 module.exports = async (req, res, next) => {
     let valid = true;
-    let errMsg = "";
+    let errMsg = '';
 
     let validate = vRequiredKeys(req.body, requiredKeys, allowedKeys);
     if (!validate.isValid) {

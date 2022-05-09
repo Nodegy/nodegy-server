@@ -14,7 +14,7 @@ module.exports = (key, val) => {
     if (!states.includes(val)) {
         return {
             isValid: false,
-            msg: `Key: ${key}. Failed position name check. Val: ${val}. Require ${states.join(", ")}.`
+            msg: `Key: ${key}. Failed position name check. Val: ${val}. Require ${states.join(', ')}.`
         };
     };
     return { isValid: true };

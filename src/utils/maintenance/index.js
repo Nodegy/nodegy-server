@@ -15,6 +15,6 @@ module.exports = async () => {
         await updateDbModels();
     };
 
-    logger.info("Maintenance complete");
+    logger.info('Maintenance complete');
 
 };

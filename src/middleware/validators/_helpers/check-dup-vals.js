@@ -8,7 +8,7 @@ module.exports = (arr, key) => {
                 if (keyMap.includes(el[key])) {
                     isValid = false;
                 } else {
-                    keyMap.push(el[key])
+                    keyMap.push(el[key]);
                 };
             } else {
                 isValid = false;

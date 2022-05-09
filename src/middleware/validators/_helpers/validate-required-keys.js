@@ -1,7 +1,7 @@
 module.exports = (body, requiredKeys, allowedKeys) => {
     const len = Object.keys(body).length;
-    const minLen = allowedKeys !== undefined ? requiredKeys.length + 1 : requiredKeys.length
-    const maxLen = allowedKeys !== undefined ? allowedKeys.length : requiredKeys.length
+    const minLen = allowedKeys !== undefined ? requiredKeys.length + 1 : requiredKeys.length;
+    const maxLen = allowedKeys !== undefined ? allowedKeys.length : requiredKeys.length;
 
     if (len < minLen || len > maxLen) {
         return {
@@ -15,9 +15,9 @@ module.exports = (body, requiredKeys, allowedKeys) => {
                 requiredKeys.includes(key))))) {
         return {
             isValid: false,
-            msg: `Invalid content. Require ${requiredKeys.join(", ")}.`
+            msg: `Invalid content. Require ${requiredKeys.join(', ')}.`
         };
     } else {
-        return { isValid: true }
+        return { isValid: true };
     }
 };

@@ -1,4 +1,4 @@
-const db = require("../../models");
+const db = require('../../models');
 const Strategy = db.strategy;
 const Webhook = db.webhook;
 const { determineActivePosition,
@@ -55,7 +55,7 @@ module.exports = async (req, res, next) => {
                     conditions: activeConditions,
                     lastTrigger: triggeredPositions.length ? triggeredPositions[triggeredPositions.length - 1] : strategy.activeStratData.lastTrigger,
                     positionState: activePosition,
-                }
+                };
 
                 strategy = await Strategy.findByIdAndUpdate(
                     { _id: stratId },

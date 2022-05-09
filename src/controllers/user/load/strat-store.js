@@ -1,5 +1,5 @@
 const { handleResponse } = require('../../_utils/response-handlers/index');
-const { notificationsStoreLoader, stratStoreLoader } = require("../../loaders/index");
+const { notificationsStoreLoader, stratStoreLoader } = require('../../loaders/index');
 const service = 'load strat store';
 
 module.exports = async (req, res) => {
@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
     try {
         if (!req.cookies.eid) {
             res.status(400).send({
-                message: "Invalid cookie. Require eid"
+                message: 'Invalid cookie. Require eid'
             });
             return;
         };

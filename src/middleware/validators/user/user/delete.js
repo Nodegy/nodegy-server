@@ -3,7 +3,7 @@ const service = 'delete user';
 
 module.exports = async (req, res, next) => {
     let valid = true;
-    let errMsg = "";
+    let errMsg = '';
 
     if (!req.cookies.id || !req.cookies.eid) {
         errMsg = 'Cookies check failed.  Require id, eid.';

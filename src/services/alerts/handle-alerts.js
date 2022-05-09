@@ -20,7 +20,7 @@ module.exports = async (symbol, strategyName, alertPositions, alerts) => {
                         break;
 
                     case 'bot':
-                        console.log('send bot notification')
+                        console.log('send bot notification');
                         break;
                 };
             });

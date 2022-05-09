@@ -1,11 +1,11 @@
 const { handleResponse } = require('../../../../controllers/_utils/response-handlers/index');
 const { vKeyValues, vRequiredKeys } = require('../../_helpers/index');
-const service = "Verification Reset Pw";
+const service = 'Verification Reset Pw';
 const requiredKeys = ['email', 'vCode', 'password'];
 
 module.exports = async (req, res, next) => {
     let valid = true;
-    let errMsg = "";
+    let errMsg = '';
 
     let validate = vRequiredKeys(req.body, requiredKeys);
     if (!validate.isValid) {

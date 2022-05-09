@@ -1,7 +1,7 @@
-const db = require("../../../models");
+const db = require('../../../models');
 const User = db.user;
 const { handleResponse } = require('../../_utils/response-handlers/index');
-const service = "verification check email exists";
+const service = 'verification check email exists';
 
 module.exports = async (req, res) => {
     const eid = req.cookies.eid;

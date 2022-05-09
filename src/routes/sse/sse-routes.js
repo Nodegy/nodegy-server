@@ -1,4 +1,4 @@
-const controller = require("../../services/sse/index");
+const controller = require('../../services/sse/index');
 
 module.exports = (app) => {
 

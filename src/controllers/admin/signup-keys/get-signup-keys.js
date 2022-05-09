@@ -1,7 +1,7 @@
 const db = require('../../../models');
 const SignupKey = db.signupKey;
 const { handleResponse } = require('../../_utils/response-handlers/index');
-const service = "get signup keys";
+const service = 'get signup keys';
 
 module.exports = async (req, res) => {
     const eid = req.cookies.eid;
