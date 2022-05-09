@@ -1,11 +1,6 @@
 module.exports = (app) => {
-
-    const ALLOWED_ORIGINS = [
-        'http://localhost:8081',
-    ];
-
     app.use(function (req, res, next) {
-        res.set('Access-Control-Allow-Origin', ALLOWED_ORIGINS);
+        res.set('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGINS);
         res.set(
             'Access-Control-Allow-Headers',
             'Origin, Content-Type, Accept'
