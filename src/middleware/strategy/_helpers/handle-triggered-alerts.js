@@ -1,4 +1,4 @@
-const db = require("../../../models");
+const db = require('../../../models');
 const Alert = db.alert;
 const handleAlerts = require('../../../services/alerts/handle-alerts');
 

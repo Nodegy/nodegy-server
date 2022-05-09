@@ -1,14 +1,14 @@
 const db = require('../../../models');
 const User = db.user;
 const Role = db.role;
-const { genVCode } = require("../../../services/generators/index");
-const bcrypt = require("bcrypt");
+const { genVCode } = require('../../../services/generators/index');
+const bcrypt = require('bcrypt');
 const { handleResponse } = require('../../_utils/response-handlers/index');
-const service = "mod create user";
+const service = 'mod create user';
 
 module.exports = async (req, res) => {
     const eid = req.cookies.eid;
-    const vCode = genVCode()
+    const vCode = genVCode();
     const user = new User({
         eid: '',
         username: req.body.username,

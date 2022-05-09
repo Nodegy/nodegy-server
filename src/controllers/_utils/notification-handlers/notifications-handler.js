@@ -16,6 +16,6 @@ module.exports = async (eid, notifications) => {
         return Promise.resolve();
     } catch (err) {
         return Promise.reject(err);
-    };
+    }
 };
 

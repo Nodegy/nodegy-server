@@ -19,7 +19,7 @@ module.exports = async (res, { service, status }) => {
                 service: 'External Request Response Handler'
             });
         } else {
-            logger.info(loggerMsg)
-        };
-    };
+            logger.info(loggerMsg);
+        }
+    }
 };

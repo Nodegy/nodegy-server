@@ -1,15 +1,15 @@
 const { handleResponse } = require('../../../../controllers/_utils/response-handlers/index');
 const { vKeyValues, vRequiredKeys } = require('../../_helpers/index');
-const service = "create alert";
+const service = 'create alert';
 const requiredKeys = ['address', 'messages', 'name', 'notes', 'type'];
 
 module.exports = async (req, res, next) => {
     let valid = true;
-    let errMsg = "";
+    let errMsg = '';
     let validate;
 
     if (!req.cookies.eid) {
-        errMsg = "Invalid cookies. Require eid.";
+        errMsg = 'Invalid cookies. Require eid.';
         valid = false;
     };
 

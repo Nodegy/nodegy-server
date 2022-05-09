@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require('fs');
 
 module.exports = async (logger) => {
     const paths = ['./src/utils/logger/logs/'];
@@ -10,12 +10,12 @@ module.exports = async (logger) => {
             files.forEach(file => {
                 let checkPath = path + file + '.log';
                 if (fs.existsSync(checkPath)) {
-                    logger.info(`exists: ${checkPath}`)
-                    fs.writeFile(checkPath, "", { flag: 'w' }, (err) => {
+                    logger.info(`exists: ${checkPath}`);
+                    fs.writeFile(checkPath, '', { flag: 'w' }, (err) => {
                         if (err) {
                             errs.push(err);
                         } else {
-                            logger.info(`cleared: ${checkPath}`)
+                            logger.info(`cleared: ${checkPath}`);
                         };
                     });
                 };

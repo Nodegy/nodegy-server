@@ -5,7 +5,7 @@ module.exports = (eid, err, service, stratName, triggers, triggeredPositions) =>
 
     const triggerNames = triggers.map(trigger => trigger.name);
 
-    let msg = `Webhook received!  Strategy: [${stratName}], Conditions: [${triggerNames.join(', ')}].`
+    let msg = `Webhook received!  Strategy: [${stratName}], Conditions: [${triggerNames.join(', ')}].`;
 
     if (err) {
         msg += ` Error: ${err}`;

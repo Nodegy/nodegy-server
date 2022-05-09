@@ -1,15 +1,15 @@
-const jwt = require("jsonwebtoken");
-const config = require("../../config/auth.config.js");
-const db = require("../../models");
+const jwt = require('jsonwebtoken');
+const config = require('../../config/auth.config.js');
+const db = require('../../models');
 const User = db.user;
 const Role = db.role;
 
 verifyToken = (req, res, next) => {
-    let token = req.cookies.accessToken
+    let token = req.cookies.accessToken;
 
     if (!token) {
         res.status(403).send({
-            message: "No token provided!"
+            message: 'No token provided!'
         });
         return;
     };
@@ -17,7 +17,7 @@ verifyToken = (req, res, next) => {
     jwt.verify(token, config.secret, (err, decoded) => {
         if (err) {
             res.status(401).send({
-                message: "Unauthorized!"
+                message: 'Unauthorized!'
             });
             return;
         };
@@ -39,14 +39,14 @@ isAdmin = async (req, res, next) => {
         const roles = await Role.find({ _id: { $in: user.roles } });
 
         for (let i = 0; i < roles.length; i++) {
-            if (roles[i].name === "admin") {
+            if (roles[i].name === 'admin') {
                 next();
                 return;
             };
         };
 
         res.status(403).send({
-            message: "Action: Authorization. Error: Require Admin Role."
+            message: 'Action: Authorization. Error: Require Admin Role.'
         });
         return;
 
@@ -71,14 +71,14 @@ isModerator = async (req, res, next) => {
         const roles = await Role.find({ _id: { $in: user.roles } });
 
         for (let i = 0; i < roles.length; i++) {
-            if ((roles[i].name === "moderator") || (roles[i].name === "admin")) {
+            if ((roles[i].name === 'moderator') || (roles[i].name === 'admin')) {
                 next();
                 return;
             }
         }
 
         res.status(403).send({
-            message: "Action: Authorization. Error: Require Moderator Role."
+            message: 'Action: Authorization. Error: Require Moderator Role.'
         });
         return;
 

@@ -2,7 +2,7 @@ const db = require('../../../models');
 const User = db.user;
 const Role = db.role;
 const { handleResponse } = require('../../_utils/response-handlers/index');
-const service = "update user role";
+const service = 'update user role';
 
 module.exports = async (req, res) => {
     const eid = req.cookies.eid;

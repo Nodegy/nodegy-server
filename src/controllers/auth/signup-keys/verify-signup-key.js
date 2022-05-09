@@ -1,7 +1,7 @@
 const db = require('../../../models');
 const SignupKey = db.signupKey;
 const { handleResponse } = require('../../_utils/response-handlers/index');
-const service = "verify signup key";
+const service = 'verify signup key';
 
 module.exports = async (req, res) => {
     let err;

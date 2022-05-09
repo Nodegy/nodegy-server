@@ -1,11 +1,11 @@
 const { handleResponse } = require('../../../../controllers/_utils/response-handlers/index');
 const { vKeyValues, vRequiredKeys } = require('../../_helpers/index');
-const service = "Generate Signup Key";
+const service = 'Generate Signup Key';
 const requiredKeys = ['generateSignupKeys', 'total'];
 
 module.exports = async (req, res, next) => {
     let valid = true;
-    let errMsg = "";
+    let errMsg = '';
 
     let validate = vRequiredKeys(req.body, requiredKeys);
     if (!validate.isValid) {

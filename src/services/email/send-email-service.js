@@ -17,7 +17,7 @@ module.exports = async (address, subject, body) => {
             text: body
         };
 
-        const confirm = await transporter.sendMail(mailOptions)
+        const confirm = await transporter.sendMail(mailOptions);
         return Promise.resolve(confirm);
 
     } catch (err) {

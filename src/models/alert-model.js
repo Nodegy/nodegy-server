@@ -48,9 +48,9 @@ module.exports = mongoose => {
                 type: String,
                 enum:
                     [
-                        "bot",
-                        "email",
-                        "discord"
+                        'bot',
+                        'email',
+                        'discord'
                     ],
                 required: true
             },
@@ -59,4 +59,4 @@ module.exports = mongoose => {
     );
     return Alert;
 
-}
+};

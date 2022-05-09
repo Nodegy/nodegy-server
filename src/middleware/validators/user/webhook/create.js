@@ -1,15 +1,15 @@
 const { handleResponse } = require('../../../../controllers/_utils/response-handlers/index');
 const { vKeyValues, vRequiredKeys } = require('../../_helpers/index');
-const service = "incoming webhook";
+const service = 'incoming webhook';
 const requiredKeys = ['conditions', '_id', 'symbol'];
 
 module.exports = async (req, res, next) => {
     let valid = true;
-    let errMsg = "";
+    let errMsg = '';
     let validate;
 
     if (!req.params.eid) {
-        errMsg = 'params check failed.  Require eid'
+        errMsg = 'params check failed.  Require eid';
         valid = false;
     };
 

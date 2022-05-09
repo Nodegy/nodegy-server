@@ -1,15 +1,15 @@
 const { handleResponse } = require('../../../../controllers/_utils/response-handlers/index');
 const { vKeyValues, vRequiredKeys } = require('../../_helpers/index');
-const service = "Verification Check Email Exists";
+const service = 'Verification Check Email Exists';
 const requiredKeys = ['email'];
 
 module.exports = async (req, res, next) => {
     let valid = true;
-    let errMsg = "";
+    let errMsg = '';
     let validate;
 
     if (!req.cookies.id) {
-        errMsg = "Invalid cookies. Require id.";
+        errMsg = 'Invalid cookies. Require id.';
         valid = false;
     };
 

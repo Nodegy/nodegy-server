@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
     let users;
     let updatedUserArray;
     try {
-        users = await User.find().populate("roles", "-__v");
+        users = await User.find().populate('roles', '-__v');
         updatedUserArray = users.map(item => {
             const container = {};
             container['_id'] = item['_id'];
@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
             container['roles'] = [];
             container['timezone'] = item.preferences['timezone'];
             for (let i = 0; i < item.roles.length; i++) {
-                container['roles'].push(item['roles'][i]['name'])
+                container['roles'].push(item['roles'][i]['name']);
             };
             return container;
         });

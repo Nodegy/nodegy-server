@@ -37,7 +37,7 @@ module.exports = mongoose => {
             roles: [
                 {
                     type: mongoose.Schema.Types.ObjectId,
-                    ref: "Role"
+                    ref: 'Role'
                 }
             ],
             username: {

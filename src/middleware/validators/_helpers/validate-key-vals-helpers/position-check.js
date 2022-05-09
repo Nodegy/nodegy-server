@@ -16,7 +16,7 @@ module.exports = (key, val) => {
     if (!positions.includes(val)) {
         return {
             isValid: false,
-            msg: `Key: ${key}. Failed position name check. Val: ${val}. Require ${positions.join(", ")}.`
+            msg: `Key: ${key}. Failed position name check. Val: ${val}. Require ${positions.join(', ')}.`
         };
     };
     return { isValid: true };

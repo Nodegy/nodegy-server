@@ -34,7 +34,7 @@ module.exports = async (req, res) => {
             await Alert.deleteMany({ eid: eid });
             await Strategy.deleteMany({ eid: eid });
             await Webhook.deleteMany({ eid: eid });
-            confirmDeletedUser = true
+            confirmDeletedUser = true;
         };
 
     } catch (error) {

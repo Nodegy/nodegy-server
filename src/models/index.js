@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 if (process.env.NODE_ENV === 'development') {
     let counter = 0;
-    mongoose.set("debug", (collectionName, method, query, doc) => {
+    mongoose.set('debug', (collectionName, method, query, doc) => {
         console.log('\x1b[1m', `\ncounter: ${counter}`);
         console.log('\x1b[36m%s', `${`collection: ${collectionName}`}\n${`method: ${method}`}`);
         console.log('\x1b[0m', JSON.stringify(query), doc);
@@ -27,7 +27,7 @@ db.strategy = require('./strategy-model.js')(mongoose);
 db.user = require('./user-model.js')(mongoose);
 db.webhook = require('./webhook-model')(mongoose);
 
-db.ROLES = ['isConfirmed', "user", "admin", "moderator"];
+db.ROLES = ['isConfirmed', 'user', 'admin', 'moderator'];
 
 module.exports = db;
 

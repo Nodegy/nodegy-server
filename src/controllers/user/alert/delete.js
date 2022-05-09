@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
     try {
         const confirm = await Alert.findByIdAndRemove(alertId);
         if (confirm) {
-            updatedStrategies = await Strategy.updateMany({ $pull: { "alerts": alertId } });
+            updatedStrategies = await Strategy.updateMany({ $pull: { 'alerts': alertId } });
         };
     } catch (error) {
         err = error;

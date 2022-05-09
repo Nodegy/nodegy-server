@@ -7,13 +7,13 @@ module.exports = (service) => {
 
     switch (true) {
         case incoming.some(el => service.includes(el)):
-            type = 'incoming'
+            type = 'incoming';
             break;
         case outgoing.some(el => service.includes(el)):
-            type = 'outgoing'
+            type = 'outgoing';
             break;
         default:
-            type = 'action'
+            type = 'action';
             break;
     };
     return type;

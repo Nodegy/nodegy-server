@@ -10,7 +10,7 @@ const logFormat = printf(({ level, message, timestamp, stack }) => {
     return stack ?
         `${timestamp} [${level}: \n\nstack: ${stack}]\n`
         :
-        `${timestamp} [${level}: ${message}]`
+        `${timestamp} [${level}: ${message}]`;
 });
 
 const excFormat = printf(({ level, message, timestamp, stack }) => {
@@ -39,7 +39,7 @@ if (process.env.LOG_TO_FILE === 'true') {
                 logFormat
             ),
         })
-    )
+    );
 };
 
 if (process.env.LOG_TO_DB === 'true') {
@@ -57,7 +57,7 @@ if (process.env.LOG_TO_DB === 'true') {
                 logFormat
             ),
         })
-    )
+    );
 };
 
 // let buildExceptionHandlers = [

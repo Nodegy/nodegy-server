@@ -34,7 +34,7 @@ module.exports = async (res, { data, eid, err, isErr, message, status, service }
                 service: 'Response Handler'
             });
         } else {
-            logger.info(loggerMsg)
+            logger.info(loggerMsg);
         };
     };
 };

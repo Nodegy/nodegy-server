@@ -1,17 +1,17 @@
-const db = require("../../models");
+const db = require('../../models');
 const ROLES = db.ROLES;
 const User = db.user;
 
 checkDuplicateUsernameOrEmail = async (req, res, next) => {
     try {
-        const email = req.body.email ? req.body.email.toLowerCase() : null
-        const username = req.body.username ? req.body.username.toLowerCase() : null
+        const email = req.body.email ? req.body.email.toLowerCase() : null;
+        const username = req.body.username ? req.body.username.toLowerCase() : null;
         const oldEmail = req.body.oldEmail ? req.body.oldEmail.toLowerCase() : null;
 
         if (oldEmail) {
             if (!email) {
                 res.status(400).send({
-                    message: "Missing updated email."
+                    message: 'Missing updated email.'
                 });
                 return;
             };
@@ -31,13 +31,13 @@ checkDuplicateUsernameOrEmail = async (req, res, next) => {
         if (user) {
             if (user.username.toLowerCase() === username) {
                 res.status(400).send({
-                    message: "Username is already in use."
+                    message: 'Username is already in use.'
                 });
                 return;
             };
             if (user.email.toLowerCase() === email) {
                 res.status(400).send({
-                    message: "Email is already in use."
+                    message: 'Email is already in use.'
                 });
                 return;
             };
@@ -48,7 +48,7 @@ checkDuplicateUsernameOrEmail = async (req, res, next) => {
     } catch (err) {
         res.status(500).send({
             message: `Action: Check duplicate username or email.  Error: ${err}`
-        })
+        });
     };
 
 };

@@ -1,15 +1,15 @@
 const { handleResponse } = require('../../../controllers/_utils/response-handlers/index');
 const { vRequiredKeys } = require('../_helpers/index');
-const service = "create site error";
+const service = 'create site error';
 const requiredKeys = ['service', 'function', 'message', 'stack'];
 
 module.exports = async (req, res, next) => {
     let valid = true;
-    let errMsg = "";
+    let errMsg = '';
     let validate;
 
     if (!req.cookies.id) {
-        errMsg = "Invalid cookies. Require id.";
+        errMsg = 'Invalid cookies. Require id.';
         valid = false;
     };
 

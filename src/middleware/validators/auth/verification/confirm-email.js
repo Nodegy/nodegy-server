@@ -1,13 +1,13 @@
 const { handleResponse } = require('../../../../controllers/_utils/response-handlers/index');
 const { vKeyValues, vRequiredKeys } = require('../../_helpers/index');
-const service = "Verification Confirm Email";
+const service = 'Verification Confirm Email';
 
 module.exports = async (req, res, next) => {
     let valid = true;
-    let errMsg = "";
+    let errMsg = '';
 
     if (!req.cookies.id) {
-        errMsg = "Invalid cookies. Require id.";
+        errMsg = 'Invalid cookies. Require id.';
         valid = false;
     };
 

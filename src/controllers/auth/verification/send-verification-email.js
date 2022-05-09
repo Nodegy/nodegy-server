@@ -1,14 +1,14 @@
-const db = require("../../../models");
+const db = require('../../../models');
 const User = db.user;
-const { genVCode } = require("../../../services/generators/index");
-const sendVEmailService = require("../../../services/email/send-verification-code");
+const { genVCode } = require('../../../services/generators/index');
+const sendVEmailService = require('../../../services/email/send-verification-code');
 const { handleResponse } = require('../../_utils/response-handlers/index');
-const service = "verification send verification email";
+const service = 'verification send verification email';
 
 module.exports = async (req, res) => {
     const eid = req.cookies.eid;
     const vCode = genVCode();
-    const oldEmail = req.body.oldEmail
+    const oldEmail = req.body.oldEmail;
     const newEmail = req.body.email;
     let confirm;
     let status;

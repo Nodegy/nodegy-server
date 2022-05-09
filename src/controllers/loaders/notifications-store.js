@@ -3,7 +3,7 @@ const Notification = db.notification;
 
 module.exports = async (eid) => {
     try {
-        let notifications = await Notification.find({ eid: eid })
+        let notifications = await Notification.find({ eid: eid });
         notifications = notifications.map(notification => {
             return {
                 createdAt: notification.createdAt,

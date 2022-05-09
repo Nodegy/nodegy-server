@@ -1,4 +1,4 @@
-const db = require("../../models");
+const db = require('../../models');
 const SignupKey = db.signupKey;
 const { handleResponse } = require('../../controllers/_utils/response-handlers/index');
 const service = 'verify signup key';
@@ -15,7 +15,7 @@ module.exports = async (req, res, next) => {
                 await handleResponse(res, {
                     data: null,
                     eid: null,
-                    err: "invalid key",
+                    err: 'invalid key',
                     isErr: true,
                     status: 400,
                     service: service
@@ -31,7 +31,7 @@ module.exports = async (req, res, next) => {
     } catch (err) {
         res.status(500).send({
             message: `Action: Verify signup key. Error: ${err}`
-        })
+        });
     };
 
 };

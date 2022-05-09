@@ -1,7 +1,7 @@
 const db = require('../../../models');
 const MailingList = db.mailingListEmail;
 const { handleResponse } = require('../../_utils/response-handlers/index');
-const service = "add to mailing list";
+const service = 'add to mailing list';
 
 module.exports = async (req, res) => {
     let err;

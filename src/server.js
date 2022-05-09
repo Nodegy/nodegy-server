@@ -20,7 +20,7 @@ const initServer = async () => {
     require('dotenv').config();
 
     app.get('/', (req, res) => {
-        res.json({ message: "Welcome to Nodegy." });
+        res.json({ message: 'Welcome to Nodegy.' });
     });
 
     const db = require('./models');
@@ -36,7 +36,7 @@ const initServer = async () => {
 
         if (connected) {
             logger.info('Connected to the database.');
-        };
+        }
     } catch (err) {
         handleInternalError({
             message: 'Cannot connect to the database',
@@ -44,7 +44,7 @@ const initServer = async () => {
             service: 'Server'
         });
         process.exit();
-    };
+    }
 
     require('./routes/index')(app);
 
@@ -54,7 +54,7 @@ const initServer = async () => {
         const appListen = await app.listen(PORT);
         if (appListen) {
             logger.info(`Server is running on port ${PORT}`);
-        };
+        }
 
     } catch (err) {
         handleInternalError({
@@ -63,7 +63,7 @@ const initServer = async () => {
             service: 'Server'
         });
         process.exit();
-    };
+    }
 
     const initializeRolesInDb = (require('./services/roles/init-roles-in-db'));
 
@@ -74,3 +74,4 @@ const initServer = async () => {
 };
 
 initServer();
+const test23 = 'one';
