@@ -1,4 +1,3 @@
-const config = require('../../config/auth.config');
 const db = require('../../models');
 const User = db.user;
 const jwt = require('jsonwebtoken');
@@ -40,7 +39,7 @@ module.exports = async (req, res) => {
         };
 
         if (!err) {
-            const token = jwt.sign({ id: user.id }, config.secret, {
+            const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {
                 expiresIn: 3 * 24 * 60 * 60 * 1000,
             });
             payload = await generatePayload(user);

@@ -2,8 +2,7 @@ const { createLogger, transports, format } = require('winston');
 const { timestamp, combine, colorize, errors, json, printf } = format;
 require('winston-mongodb');
 require('dotenv').config();
-const dbConfig = require('../../config/db.config.js');
-
+const serverConfig = require('../../server-config');
 const filePath = './src/utils/logger/logs/';
 const logFormat = printf(({ level, message, timestamp, stack }) => {
 
@@ -28,7 +27,7 @@ let defineTransports = [
     }),
 ];
 
-if (process.env.LOG_TO_FILE === 'true') {
+if (serverConfig.LOG_TO_FILE) {
     defineTransports.push(
         new transports.File({
             level: 'error',
@@ -42,11 +41,11 @@ if (process.env.LOG_TO_FILE === 'true') {
     );
 };
 
-if (process.env.LOG_TO_DB === 'true') {
+if (serverConfig.LOG_TO_DB) {
     defineTransports.push(
         new transports.MongoDB({
             level: 'error',
-            db: dbConfig.url,
+            db: process.env.DB_URL,
             options: {
                 useUnifiedTopology: true,
             },

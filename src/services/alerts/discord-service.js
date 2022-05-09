@@ -1,11 +1,12 @@
 const axios = require('axios');
 const { handleInternalError } = require('../../utils/internal-handlers/index');
+const serverConfig = require('../../server-config');
 
 module.exports = async (symbol, name, action, positionMessage, url) => {
     try {
         const message = {
             username: 'Nodegy',
-            avatar_url: process.env.DISCORD_AVATAR_URL,
+            avatar_url: serverConfig.DISCORD_AVATAR_URL,
             content: `New ${action} Alert!`,
             embeds: [
                 {

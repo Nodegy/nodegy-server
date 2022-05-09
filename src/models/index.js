@@ -1,4 +1,3 @@
-const dbConfig = require('../config/db.config.js');
 const mongoose = require('mongoose');
 
 if (process.env.NODE_ENV === 'development') {
@@ -13,7 +12,7 @@ if (process.env.NODE_ENV === 'development') {
 
 const db = {};
 db.mongoose = mongoose;
-db.url = dbConfig.url;
+db.url = process.env.DB_URL;
 
 db.alert = require('./alert-model.js')(mongoose);
 db.archive = require('./archive-model.js')(mongoose);
