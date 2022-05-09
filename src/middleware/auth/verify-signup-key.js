@@ -1,8 +1,9 @@
 const db = require('../../models');
 const SignupKey = db.signupKey;
 const { handleResponse } = require('../../controllers/_utils/response-handlers/index');
+const serverConfig = require('../../server-config');
 const service = 'verify signup key';
-const frontEndIsBeta = process.env.FRONT_END_BETA_SIGNUPS == 'true';
+const frontEndIsBeta = serverConfig.FRONT_END_BETA_SIGNUPS;
 
 module.exports = async (req, res, next) => {
     try {

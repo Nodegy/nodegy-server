@@ -8,7 +8,9 @@ const { genVCode } = require('../../services/generators/index');
 const sendVerificationEmail = require('../../services/email/send-verification-code');
 const { handleResponse } = require('../_utils/response-handlers/index');
 const service = 'Signup';
-const frontEndIsBeta = process.env.FRONT_END_BETA_SIGNUPS == 'true';
+const serverConfig = require('../../server-config');
+
+const frontEndIsBeta = serverConfig.FRONT_END_BETA_SIGNUPS;
 
 module.exports = async (req, res) => {
     let confirm;

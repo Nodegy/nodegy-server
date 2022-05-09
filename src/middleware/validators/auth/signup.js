@@ -1,7 +1,8 @@
 const { handleResponse } = require('../../../controllers/_utils/response-handlers/index');
 const { vKeyValues, vRequiredKeys } = require('../_helpers/index');
 const service = 'Signup';
-const frontEndIsBeta = process.env.FRONT_END_BETA_SIGNUPS == 'true';
+const serverConfig = require('../../../server-config');
+const frontEndIsBeta = serverConfig.FRONT_END_BETA_SIGNUPS == 'true';
 
 module.exports = async (req, res, next) => {
     const requiredKeys = ['username', 'email', 'password', 'timezone'];
