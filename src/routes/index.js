@@ -1,4 +1,10 @@
 module.exports = (app) => {
+    console.log(process.env.ALLOWED_ORIGINS)
+    const ALLOWED_ORIGINS = [
+        process.env.REQUEST_ORIGIN,
+        'http://127.0.0.1:8080/'
+    ];
+
     app.use(function (req, res, next) {
         res.set('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGINS);
         res.set(
