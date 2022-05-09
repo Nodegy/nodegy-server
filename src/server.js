@@ -23,7 +23,7 @@ const initServer = async () => {
     require('dotenv').config();
 
     app.get('/', (req, res) => {
-        res.json({ message: 'Welcome to Nodegy.' });
+        res.json({ message: `Welcome to Nodegy. ${process.env.REQUEST_ORIGIN}` });
     });
 
     const db = require('./models');
