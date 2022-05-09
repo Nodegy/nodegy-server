@@ -10,7 +10,7 @@ const initServer = async () => {
     const app = express();
     const corsOptions = {
         credentials: true,
-        origin: 'http://localhost:8081',
+        origin: process.env.REQUEST_ORIGIN,
     };
 
     app.use(cors(corsOptions));
