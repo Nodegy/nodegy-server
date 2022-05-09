@@ -1,10 +1,12 @@
+const express = require('express');
+const cors = require('cors');
+const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
+const logger = require('./utils/logger/logger');
+const helmet = require('helmet');
+const { handleInternalError } = require('./utils/internal-handlers/index');
+
 const initServer = async () => {
-    const express = require('express');
-    const cors = require('cors');
-    const morgan = require('morgan');
-    const cookieParser = require('cookie-parser');
-    const logger = require('./utils/logger/logger');
-    const { handleInternalError } = require('./utils/internal-handlers/index');
     const app = express();
     const corsOptions = {
         credentials: true,
@@ -16,6 +18,7 @@ const initServer = async () => {
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
     app.use(morgan('dev'));
+    app.use(helmet());
 
     require('dotenv').config();
 
@@ -24,7 +27,7 @@ const initServer = async () => {
     });
 
     const db = require('./models');
-
+    logger.info(`Node Environment: ${process.env.NODE_ENV}`);
     try {
         const connected = await db.mongoose
             .connect(db.url, {
@@ -48,7 +51,7 @@ const initServer = async () => {
 
     require('./routes/index')(app);
 
-    const PORT = process.env.PORT;
+    const PORT = process.env.PORT || 3000;
 
     try {
         const appListen = await app.listen(PORT);
@@ -74,4 +77,3 @@ const initServer = async () => {
 };
 
 initServer();
-const test23 = 'one';
