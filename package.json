@@ -30,7 +30,6 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.7",
     "morgan": "^1.10.0",
-    "node": "^17.7.2",
     "nodemailer": "^6.6.3",
     "winston": "^3.4.0",
     "winston-mongodb": "^5.0.7"
