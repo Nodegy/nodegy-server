@@ -6,7 +6,7 @@ module.exports = (app) => {
     ];
 
     app.use(function (req, res, next) {
-        res.set('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGINS);
+        // res.set('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGINS);
         res.set(
             'Access-Control-Allow-Headers',
             'Origin, Content-Type, Accept'
