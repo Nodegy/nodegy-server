@@ -10,7 +10,7 @@ const initServer = async () => {
     const app = express();
     const corsOptions = {
         credentials: true,
-        origin: process.env.REQUEST_ORIGIN,
+        origin: process.env.PROD_ORIGIN
     };
 
     app.use(cors(corsOptions));
@@ -23,7 +23,7 @@ const initServer = async () => {
     require('dotenv').config();
 
     app.get('/', (req, res) => {
-        res.json({ message: `Welcome to Nodegy. ${process.env.REQUEST_ORIGIN}` });
+        res.json({ message: `Welcome to Nodegy.` });
     });
 
     const db = require('./models');

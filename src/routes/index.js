@@ -1,9 +1,6 @@
 module.exports = (app) => {
-    console.log(process.env.ALLOWED_ORIGINS)
     const ALLOWED_ORIGINS = [
-        process.env.REQUEST_ORIGIN,
-        'http://127.0.0.1:8081/',
-        'http://localhost:8081/'
+        process.env.PROD_ORIGIN
     ];
 
     app.use(function (req, res, next) {
