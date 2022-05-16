@@ -3,8 +3,6 @@ module.exports = (app) => {
         process.env.LOCAL_ORIGIN, process.env.DEV_ORIGIN, process.env.PROD_ORIGIN
     ];
 
-
-
     app.use(function (req, res, next) {
         let allowedOrigin;
         const incomingHost = req.headers.origin;
@@ -19,7 +17,6 @@ module.exports = (app) => {
         };
 
         res.set('Access-Control-Allow-Origin', process.env.PROD_ORIGIN);
-        res.set('Access-Control-Allow-Methods', 'GET', 'POST', 'PATCH', 'DELETE')
         res.set(
             'Access-Control-Allow-Headers',
             'Origin, Content-Type, Accept'

@@ -10,7 +10,8 @@ const initServer = async () => {
     const app = express();
     const corsOptions = {
         credentials: true,
-        origin: process.env.ALLOWED_ORIGIN
+        origin: process.env.ALLOWED_ORIGIN,
+        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     };
 
     app.use(cors(corsOptions));
