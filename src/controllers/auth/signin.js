@@ -45,7 +45,7 @@ module.exports = async (req, res) => {
             payload = await generatePayload(user);
             const cookieParams = {
                 maxAge: 3 * 24 * 60 * 60 * 1000,
-                sameSite: 'strict',
+                sameSite: 'None',
                 path: '/',
                 secure: true,
                 httpOnly: true
