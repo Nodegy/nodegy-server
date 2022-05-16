@@ -3,7 +3,7 @@ module.exports = (app) => {
         res.set('Access-Control-Allow-Origin', process.env.NODE_ENV === 'production' ? process.env.PROD_ORIGIN : process.env.LOCAL_ORIGIN,);
         res.set(
             'Access-Control-Allow-Headers',
-            'Origin, Content-Type, Accept'
+            'Origin, Content-Type, Accept, Set-Cookie'
         );
         res.set('Access-Control-Allow-Credentials', true);
         next();
