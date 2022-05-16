@@ -19,6 +19,7 @@ module.exports = (app) => {
         };
 
         res.set('Access-Control-Allow-Origin', process.env.PROD_ORIGIN);
+        res.set('Access-Control-Allow-Methods', 'GET', 'POST', 'PATCH', 'DELETE')
         res.set(
             'Access-Control-Allow-Headers',
             'Origin, Content-Type, Accept'
