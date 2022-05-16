@@ -1,6 +1,6 @@
 module.exports = (app) => {
     const ALLOWED_ORIGINS = [
-        process.env.PROD_ORIGIN
+        process.env.ALLOWED_ORIGIN
     ];
 
     app.use(function (req, res, next) {
