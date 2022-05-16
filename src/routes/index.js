@@ -1,22 +1,6 @@
 module.exports = (app) => {
-    const allowedOrigins = [
-        process.env.LOCAL_ORIGIN, process.env.DEV_ORIGIN, process.env.PROD_ORIGIN
-    ];
-
     app.use(function (req, res, next) {
-        let allowedOrigin;
-        const incomingHost = req.headers.origin;
-        const originAllowed = allowedOrigins.includes(incomingHost);
-
-        console.log('\n\n\nNEW REQ: ', req.headers.origin)
-        if (originAllowed) {
-            console.log('ORIGIN ALLOWED')
-            allowedOrigin = incomingHost;
-        } else {
-            console.log('ORIGIN NOT ALLOWED')
-        };
-
-        res.set('Access-Control-Allow-Origin', process.env.PROD_ORIGIN);
+        res.set('Access-Control-Allow-Origin', process.env.NODE_ENV === 'production' ? process.env.PROD_ORIGIN : process.env.LOCAL_ORIGIN,);
         res.set(
             'Access-Control-Allow-Headers',
             'Origin, Content-Type, Accept'
