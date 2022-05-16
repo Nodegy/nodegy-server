@@ -5,13 +5,15 @@ const cookieParser = require('cookie-parser');
 const logger = require('./utils/logger/logger');
 const helmet = require('helmet');
 const { handleInternalError } = require('./utils/internal-handlers/index');
-
+const allowedOrigins = [
+    process.env.LOCAL_ORIGIN, process.env.DEV_ORIGIN, process.env.PROD_ORIGIN
+];
 const initServer = async () => {
     const app = express();
     const corsOptions = {
         credentials: true,
         origin: process.env.PROD_ORIGIN,
-        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+        methods: ['GET', 'PATCH', 'POST', 'DELETE'],
     };
 
     app.use(cors(corsOptions));
