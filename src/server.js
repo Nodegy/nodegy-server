@@ -12,6 +12,8 @@ const initServer = async () => {
         credentials: true,
         origin: process.env.NODE_ENV === 'production' ? process.env.PROD_ORIGIN : process.env.LOCAL_ORIGIN,
         methods: ['GET', 'PATCH', 'POST', 'DELETE'],
+        "preflightContinue": true,
+        "optionsSuccessStatus": 204
     };
 
     app.use(cors(corsOptions));
