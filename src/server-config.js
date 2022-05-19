@@ -5,4 +5,5 @@ module.exports = {
     CLEAR_LOGS_MAINTENANCE: true,
     DB_MAINTENANCE: false,
     FRONT_END_BETA_SIGNUPS: true,
+    RUN_TESTS: true,
 };

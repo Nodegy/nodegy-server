@@ -20,7 +20,6 @@ module.exports = async (req, res, next) => {
         valid = false;
     };
 
-
     if (valid) {
         validate = vKeyValues(req.body);
         if (!validate.isValid) {
@@ -30,7 +29,6 @@ module.exports = async (req, res, next) => {
     };
 
     if (!valid) {
-
         await handleResponse(res, {
             data: null,
             eid: req.cookies.eid,

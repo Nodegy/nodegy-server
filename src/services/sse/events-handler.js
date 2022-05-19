@@ -1,6 +1,6 @@
 const { addClient, removeClient } = require('./sse-ids');
 const { handleInternalError } = require('../../utils/internal-handlers/index');
-const logger = require('../../utils/logger/logger');
+const logger = require('../../utils/logger');
 
 module.exports = (req, res) => {
     try {

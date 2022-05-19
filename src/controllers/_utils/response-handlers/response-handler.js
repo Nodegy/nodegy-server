@@ -1,5 +1,5 @@
 const { handleNotifications, handleSse } = require('../notification-handlers/index');
-const logger = require('../../../utils/logger/logger');
+const logger = require('../../../utils/logger');
 const { handleInternalError } = require('../../../utils/internal-handlers/index');
 const { determineType, generateResponseMessage } = require('./_helpers/index');
 

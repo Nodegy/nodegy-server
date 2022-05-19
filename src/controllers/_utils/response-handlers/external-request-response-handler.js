@@ -1,4 +1,4 @@
-const logger = require('../../../utils/logger/logger');
+const logger = require('../../../utils/logger');
 const { handleInternalError } = require('../../../utils/internal-handlers/index');
 
 module.exports = async (res, { service, status }) => {

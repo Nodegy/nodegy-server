@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
-const logger = require('./utils/logger/logger');
+const logger = require('./utils/logger');
 const helmet = require('helmet');
 const { handleInternalError } = require('./utils/internal-handlers/index');
 
@@ -78,6 +78,13 @@ const initServer = async () => {
 
     const runMaintenance = require('./utils/maintenance/index');
     await runMaintenance();
+
+    const tests = require('../tests');
+    const testsPassed = await tests();
+    if (!testsPassed) {
+        logger.error('Tests Failed, exiting.');
+        process.exit();
+    };
 };
 
 initServer();

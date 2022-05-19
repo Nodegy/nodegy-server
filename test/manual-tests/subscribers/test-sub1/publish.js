@@ -1,1 +1,0 @@
-const eventBus = require('../../src/eventBus');

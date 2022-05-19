@@ -1,27 +1,31 @@
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    pool: process.env.EMAIL_POOL,
+    host: process.env.EMAIL_HOST,
+    port: process.env.EMAIL_PORT,
+    secure: process.env.EMAIL_SECURE,
     auth: {
-        user: process.env.FROM_EMAIL_ACCOUNT,
+        user: process.env.FROM_EMAIL_ADDRESS,
         pass: process.env.EMAIL_PASSWORD
     }
 });
 
 module.exports = async (address, subject, body) => {
-    try {
-        const mailOptions = {
-            from: process.env.FROM_EMAIL_ACCOUNT,
-            to: address,
-            subject: subject,
-            text: body
-        };
-
-        const confirm = await transporter.sendMail(mailOptions);
-        return Promise.resolve(confirm);
-
-    } catch (err) {
-        return Promise.reject(err);
+    const mailOptions = {
+        from: process.env.FROM_EMAIL_ADDRESS,
+        to: address,
+        subject: subject,
+        text: body
     };
 
+    return new Promise((resolve, reject) => {
+        transporter.sendMail(mailOptions, (err, info) => {
+            if (err) {
+                return reject(false);
+            } else {
+                return resolve(true)
+            }
+        });
+    });
 };
