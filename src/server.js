@@ -85,6 +85,7 @@ const initServer = async () => {
         logger.error('Tests Failed, exiting.');
         process.exit();
     };
+    logger.info('Ready...')
 };
 
 initServer();

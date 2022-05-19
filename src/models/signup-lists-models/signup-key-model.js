@@ -7,6 +7,10 @@ module.exports = mongoose => {
                 unique: true,
                 required: true
             },
+            isAvailable: {
+                type: Boolean,
+                default: true
+            },
             isUsed: {
                 type: Boolean,
                 default: false

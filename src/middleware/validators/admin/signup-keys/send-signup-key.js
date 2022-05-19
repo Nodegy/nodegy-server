@@ -1,7 +1,7 @@
 const { handleResponse } = require('../../../../controllers/_utils/response-handlers/index');
 const { vKeyValues, vRequiredKeys } = require('../../_helpers/index');
-const service = 'Delete Signup Keys';
-const requiredKeys = ['_ids'];
+const service = 'Send Signup Key';
+const requiredKeys = ['_id', 'email', 'key'];
 
 module.exports = async (req, res, next) => {
     let valid = true;

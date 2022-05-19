@@ -1,7 +1,6 @@
 const keys = ['_id', 'messages', 'name', 'type', 'address'];
 const types = ['bot', 'discord', 'email'];
 module.exports = (key, val) => {
-    console.log('key: ', key, 'val: ', val);
     if (!Array.isArray(val)) {
         return {
             isValid: false,

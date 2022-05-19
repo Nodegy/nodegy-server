@@ -5,5 +5,5 @@ module.exports = {
     CLEAR_LOGS_MAINTENANCE: true,
     DB_MAINTENANCE: false,
     FRONT_END_BETA_SIGNUPS: true,
-    RUN_TESTS: true,
+    RUN_TESTS: process.env.NODE_ENV === 'production' ? true : false,
 };

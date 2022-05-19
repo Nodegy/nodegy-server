@@ -19,4 +19,10 @@ module.exports = (app) => {
         authJwt.isAdmin,
         validators.deleteSignupKeys],
         controller.deleteSignupKeys);
+
+    app.patch('/adm/signupkeys/send',
+        [authJwt.verifyToken,
+        authJwt.isAdmin,
+        validators.sendSignupKey],
+        controller.sendSignupKey);
 };
