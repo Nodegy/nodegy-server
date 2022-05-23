@@ -3,11 +3,11 @@ const SignupKey = db.signupKey;
 const { handleResponse } = require('../../controllers/_utils/response-handlers/index');
 const serverConfig = require('../../server-config');
 const service = 'verify signup key';
-const frontEndIsBeta = serverConfig.FRONT_END_BETA_SIGNUPS;
+const signupKeyRequired = serverConfig.REQUIRE_SIGNUP_KEY;
 
 module.exports = async (req, res, next) => {
     try {
-        if (frontEndIsBeta) {
+        if (signupKeyRequired) {
             const key = req.body.key;
             const found = await SignupKey.findOne({
                 key: key

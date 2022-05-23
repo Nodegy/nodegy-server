@@ -35,7 +35,7 @@ module.exports = async (req, res) => {
         };
         const roles = await Role.find();
         roles.forEach(role => {
-            if (role.name === 'user' || role.name === 'isConfirmed') {
+            if (role.name === 'user') {
                 user.roles.push(role._id);
             };
         });

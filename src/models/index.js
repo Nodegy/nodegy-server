@@ -14,19 +14,19 @@ const db = {};
 db.mongoose = mongoose;
 db.url = process.env.DB_URL;
 
-db.alert = require('./alert-model.js')(mongoose);
-db.archive = require('./archive-model.js')(mongoose);
+db.alert = require('./alert-model')(mongoose);
+db.archive = require('./archive-model')(mongoose);
 db.feedback = require('./feedback-model')(mongoose);
 db.mailingListEmail = require('./signup-lists-models/mailing-list-email-model')(mongoose);
 db.notification = require('./notification-model')(mongoose);
+db.preUser = require('./pre-user-model')(mongoose);
 db.role = require('./role-model')(mongoose);
 db.signupKey = require('./signup-lists-models/signup-key-model')(mongoose);
 db.siteError = require('./site-error-model')(mongoose);
-db.strategy = require('./strategy-model.js')(mongoose);
-db.user = require('./user-model.js')(mongoose);
+db.strategy = require('./strategy-model')(mongoose);
+db.user = require('./user-model')(mongoose);
 db.webhook = require('./webhook-model')(mongoose);
 
-db.ROLES = ['isConfirmed', 'user', 'admin', 'moderator'];
+db.ROLES = ['user', 'admin', 'moderator'];
 
 module.exports = db;
-
