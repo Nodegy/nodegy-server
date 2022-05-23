@@ -11,18 +11,6 @@ module.exports = async () => {
 
                 if (doesNotExist) {
                     switch (role) {
-                        case 'isConfirmed':
-                            new Role({
-                                name: 'isConfirmed'
-                            }).save(err => {
-                                if (err) {
-                                    console.log('error', err);
-                                }
-
-                                console.log('added \'isConfirmed\' to roles collection');
-                            });
-                            break;
-
                         case 'user':
                             new Role({
                                 name: 'user'

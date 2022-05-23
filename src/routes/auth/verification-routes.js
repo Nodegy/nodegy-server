@@ -4,11 +4,6 @@ const { authJwt, verifySignUp } = require('../../middleware');
 
 module.exports = (app) => {
 
-    app.patch('/auth/verification/confirmemail',
-        [authJwt.verifyToken,
-        validators.confirmEmail],
-        controller.confirmEmail);
-
     app.patch('/auth/verification/resetpw',
         [validators.resetPw],
         controller.resetPw);

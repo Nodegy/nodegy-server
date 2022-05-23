@@ -1,13 +1,17 @@
 const { handleResponse } = require('../../../controllers/_utils/response-handlers/index');
 const { vKeyValues, vRequiredKeys } = require('../_helpers/index');
-const service = 'Signup';
-const requiredKeys = ['email', 'password', 'username'];
+const service = 'Confirm';
+const serverConfig = require('../../../server-config');
+const signupKeyRequired = serverConfig.REQUIRE_SIGNUP_KEY;
 
 module.exports = async (req, res, next) => {
-
+    let requiredKeys = ['email', 'timezone', 'vCode'];
     let valid = true;
     let errMsg = '';
-    let validate;
+
+    if (signupKeyRequired) {
+        requiredKeys.push('key');
+    };
 
     validate = vRequiredKeys(req.body, requiredKeys);
     if (!validate.isValid) {
@@ -26,7 +30,7 @@ module.exports = async (req, res, next) => {
     if (!valid) {
         await handleResponse(res, {
             data: null,
-            eid: req.cookies.eid,
+            eid: null,
             err: errMsg,
             isErr: true,
             status: 400,
@@ -34,6 +38,5 @@ module.exports = async (req, res, next) => {
         });
         return;
     };
-
     next();
 };
