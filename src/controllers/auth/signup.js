@@ -5,6 +5,8 @@ const { genVCode } = require('../../services/generators/index');
 const sendVerificationEmail = require('../../services/email/send-verification-code');
 const { handleResponse } = require('../_utils/response-handlers/index');
 const service = 'Signup';
+const serverConfig = require('../../server-config');
+const signupKeyRequired = serverConfig.REQUIRE_SIGNUP_KEY;
 
 module.exports = async (req, res) => {
     let confirm;
@@ -12,9 +14,14 @@ module.exports = async (req, res) => {
     let status;
 
     try {
+        if (signupKeyRequired) {
+            await PreUser.deleteMany({ key: req.body.key });
+        };
+
         const vCode = genVCode();
         const preUser = new PreUser({
             email: req.body.email,
+            key: signupKeyRequired ? req.body.key : null,
             password: bcrypt.hashSync(req.body.password, 1),
             username: req.body.username,
             vCode: vCode,
@@ -29,7 +36,7 @@ module.exports = async (req, res) => {
 
         if (!err) {
             confirm = true;
-            // confirm = await sendVerificationEmail(preUser.email, vCode);
+            confirm = await sendVerificationEmail(preUser.email, vCode);
         };
 
     } catch (error) {
@@ -47,4 +54,3 @@ module.exports = async (req, res) => {
         });
     };
 };
-

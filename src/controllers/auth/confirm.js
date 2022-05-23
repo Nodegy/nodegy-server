@@ -73,7 +73,7 @@ module.exports = async (req, res) => {
             status: err ? 500 : confirm ? 200 : 400,
             service: service
         });
-        await onConfirm(preUser, signupKeyRequired ? req.body.key : null);
+        await onConfirm(preUser, confirm, signupKeyRequired ? req.body.key : null);
     };
 };
 
@@ -101,12 +101,12 @@ const generatePayload = (user) => {
     };
 };
 
-const onConfirm = async (preUser, signupKey) => {
+const onConfirm = async (preUser, user, signupKey) => {
     try {
         if (signupKey) {
             await SignupKey.findOneAndUpdate({ key: signupKey }, { $set: { isUsed: true } });
         };
-        if (preUser) {
+        if (preUser && user) {
             await PreUser.deleteMany({
                 $or: [
                     { email: preUser.email },
