@@ -8,9 +8,10 @@ const { handleInternalError } = require('./utils/internal-handlers/index');
 
 const initServer = async () => {
     const app = express();
+    const origin = process.env.NODE_ENV === 'production' ? process.env.PROD_ORIGIN : process.env.LOCAL_ORIGIN
     const corsOptions = {
         credentials: true,
-        origin: process.env.NODE_ENV === 'production' ? process.env.PROD_ORIGIN : process.env.LOCAL_ORIGIN,
+        origin: origin,
         methods: ['GET', 'PATCH', 'POST', 'DELETE'],
         "preflightContinue": true,
         "optionsSuccessStatus": 204
@@ -31,6 +32,7 @@ const initServer = async () => {
 
     const db = require('./models');
     logger.info(`Node Environment: ${process.env.NODE_ENV}`);
+    logger.info(`Origin: ${origin}`)
     try {
         const connected = await db.mongoose
             .connect(db.url, {
