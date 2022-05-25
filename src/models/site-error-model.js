@@ -17,6 +17,9 @@ module.exports = mongoose => {
                 type: String,
                 require: true
             },
+            payload: {
+                type: Object
+            },
             stack: {
                 type: String,
                 require: true
