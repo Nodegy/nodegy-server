@@ -41,7 +41,7 @@ module.exports = async (req, res) => {
                 vCode: genVCode()
             });
 
-            confirm = user.save(user);
+            confirm = await user.save(user);
 
             let token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {
                 expiresIn: 3 * 24 * 60 * 60 * 1000,

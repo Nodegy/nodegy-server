@@ -1,7 +1,7 @@
 const { handleResponse } = require('../../../controllers/_utils/response-handlers/index');
 const { vRequiredKeys } = require('../_helpers/index');
 const service = 'create site error';
-const requiredKeys = ['service', 'function', 'message', 'stack'];
+const requiredKeys = ['service', 'function', 'message', 'payload', 'stack'];
 
 module.exports = async (req, res, next) => {
     let valid = true;

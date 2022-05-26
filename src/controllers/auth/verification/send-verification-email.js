@@ -1,5 +1,5 @@
 const db = require('../../../models');
-const User = db.user;
+const PreUser = db.preUser;
 const { genVCode } = require('../../../services/generators/index');
 const sendVEmailService = require('../../../services/email/send-verification-code');
 const { handleResponse } = require('../../_utils/response-handlers/index');
@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
     let err;
     try {
 
-        const user = await User.updateOne(
+        const user = await PreUser.updateOne(
             { email: oldEmail },
             { vCode: vCode, email: newEmail });
 

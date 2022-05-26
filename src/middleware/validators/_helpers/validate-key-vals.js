@@ -42,6 +42,7 @@ const hasValidPair = (key, val) => {
         case 'ready':
             return typeValidation(key, val, 'boolean');
         case 'message':
+        case 'payload':
         case 'preferences':
             return typeValidation(key, val, 'object');
         case 'timeFormat':

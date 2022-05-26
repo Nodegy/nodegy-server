@@ -9,6 +9,7 @@ module.exports = async (req, res) => {
         service: req.body.service,
         function: req.body.function,
         message: req.body.message,
+        payload: req.body.payload,
         stack: req.body.stack
     });
     const eid = req.cookies.eid;
