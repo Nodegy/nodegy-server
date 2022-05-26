@@ -2,7 +2,7 @@ const axios = require('axios');
 const { handleInternalError } = require('../../utils/internal-handlers/index');
 const serverConfig = require('../../server-config');
 
-module.exports = async (symbol, name, action, positionMessage, url) => {
+module.exports = async (symbol, name, action, positionMessage, url, currentTime) => {
     try {
         const message = {
             username: 'Nodegy',
@@ -13,7 +13,7 @@ module.exports = async (symbol, name, action, positionMessage, url) => {
                     fields: [
                         {
                             name: 'Details:',
-                            value: `~ **Strategy**: ${name}\n~ **Symbol**: ${symbol.toUpperCase()}\n~ **Action**: ${action}\n${positionMessage}`
+                            value: `~ **Strategy**: ${name}\n~ **Symbol**: ${symbol.toUpperCase()}\n~ **Action**: ${action}\n${positionMessage}\n~ **Date/Time**: ${currentTime}`
                         }
                     ]
                 }
