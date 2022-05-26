@@ -1,22 +1,25 @@
 const services = require('./index');
-const { handleInternalError } = require('../../utils/internal-handlers/index');
-const { parseForPlaceholders } = require('./_helpers/index');
+const { handleInternalError } = require('../../utils/internal-handlers');
+const { createAlertMessage, getFormattedTime } = require('./_helpers');
 
 module.exports = async (symbol, strategyName, alertPositions, alerts) => {
     try {
+        // time is set to defaults, TODO: Add user specific time settings
+        const currentTime = getFormattedTime('GMT-0500', 24);
+
         alertPositions.forEach(async posAction => {
             alerts.forEach(async alert => {
                 const alertType = alert.type;
                 const address = alert.address;
-                let message = parseForPlaceholders(alert, posAction);
+                const message = createAlertMessage(alert, posAction);
 
                 switch (alertType) {
                     case 'discord':
-                        await services.discord(symbol, strategyName, posAction, message, address);
+                        await services.discord(symbol, strategyName, posAction, message, address, currentTime);
                         break;
 
                     case 'email':
-                        await services.email(symbol, strategyName, posAction, message, address);
+                        await services.email(symbol, strategyName, posAction, message, address, currentTime);
                         break;
 
                     case 'bot':

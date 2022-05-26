@@ -1,5 +1,7 @@
-const parseForPlaceholders = require('./parse-for-placeholders');
+const createAlertMessage = require('./create-alert-message');
+const getFormattedTime = require('./get-formatted-time');
 
 module.exports = {
-    parseForPlaceholders
+    createAlertMessage,
+    getFormattedTime
 };
