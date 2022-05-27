@@ -56,8 +56,7 @@ const initServer = async () => {
 
     require('./routes/index')(app);
 
-    // const PORT = process.env.PORT || 3000;
-    const PORT = process.env.PORT;
+    const PORT = process.env.PORT || 3000;
 
     try {
         const appListen = await app.listen(PORT);
