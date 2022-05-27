@@ -1,7 +1,4 @@
 module.exports = (app) => {
-
-    require('./sse/sse-routes')(app);
-
     app.use(function (req, res, next) {
         res.set('Access-Control-Allow-Origin', process.env.NODE_ENV === 'production' ? process.env.PROD_ORIGIN : process.env.LOCAL_ORIGIN,);
         res.set(
@@ -28,6 +25,7 @@ module.exports = (app) => {
     require('./notification/notification-routes')(app);
 
     require('./site-error/site-error-routes')(app);
+    require('./sse/sse-routes')(app);
 
     require('./user/alert-routes')(app);
     require('./user/feedback-routes')(app);
