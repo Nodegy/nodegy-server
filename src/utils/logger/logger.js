@@ -16,7 +16,15 @@ const excFormat = printf(({ level, message, timestamp, stack }) => {
     return `${timestamp} [${level}: ${stack || message}]\n`;
 });
 
-let defineTransports = [
+let defineTransports = process.env.NODE_ENV === 'production' ? [
+    new transports.Console({
+        format: combine(
+            errors({ stack: true }),
+            timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+            logFormat
+        ),
+    }),
+] : [
     new transports.Console({
         format: combine(
             colorize(),

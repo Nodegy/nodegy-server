@@ -1,13 +1,16 @@
 const { addClient, removeClient } = require('./sse-ids');
 const { handleInternalError } = require('../../utils/internal-handlers/index');
 const logger = require('../../utils/logger');
+const allowOrigin = process.env.NODE_ENV === 'production' ? process.env.PROD_ORIGIN : process.env.LOCAL_ORIGIN
 
 module.exports = (req, res) => {
     try {
+
         const headers = {
-            'Content-Type': 'text/event-stream',
-            'Connection': 'keep-alive',
-            'Cache-Control': 'no-store'
+            Connection: "keep-alive",
+            "Content-Type": "text/event-stream",
+            "Cache-Control": "no-cache",
+            "Access-Control-Allow-Origin": allowOrigin
         };
 
         res.writeHead(200, headers);
