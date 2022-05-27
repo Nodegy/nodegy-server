@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.LOG_DB_REQUESTS) {
     let counter = 0;
     mongoose.set('debug', (collectionName, method, query, doc) => {
         console.log('\x1b[1m', `\ncounter: ${counter}`);

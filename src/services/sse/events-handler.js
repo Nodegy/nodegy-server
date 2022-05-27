@@ -5,7 +5,6 @@ const allowOrigin = process.env.NODE_ENV === 'production' ? process.env.PROD_ORI
 
 module.exports = (req, res) => {
     try {
-
         const headers = {
             Connection: "keep-alive",
             "Content-Type": "text/event-stream",
