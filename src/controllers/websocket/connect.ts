@@ -4,17 +4,11 @@ import { Request, Response } from "express";
 
 module.exports = (req: Request, res: Response) => {
     console.log('connecting:');
-    let jsonData;
-    try {
-        jsonData = JSON.parse(JSON.stringify(req));
-        console.log('req parsed: ', jsonData);
-    } catch (err) {
-        console.log('err 1 in connect: ', err);
-    }
-
+    console.log('req: ', req);
+    console.log('typeof: ', typeof req);
 
     try {
-        const connectionId: string = jsonData.body.connectionId;
+        const connectionId: string = req.body.connectionId;
         console.log('connectionId: ', connectionId);
     } catch (err) {
         console.log('err 2 in connect: ', err);
