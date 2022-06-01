@@ -1,5 +1,5 @@
-const sendEvent = require('./send-event');
+const sendEventToUser = require('./send-event-to-user');
 
 module.exports = {
-    sendEvent
+    sendEventToUser
 }

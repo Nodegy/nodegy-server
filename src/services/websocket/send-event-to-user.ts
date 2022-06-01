@@ -1,5 +1,7 @@
 import axios from 'axios';
 
-module.exports = () => {
-    
+module.exports = (payload: object, userId: string): void => {
+
+    console.log('sending');
+
 };

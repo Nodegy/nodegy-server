@@ -4,9 +4,14 @@ import { Request, Response } from "express";
 
 module.exports = async (req: Request, res: Response) => {
     const eid: string = req.cookies.eid;
-    const clientId: string = req.body.connectionId;
+    const connectionId: string = req.body.connectionId;
+    const domain: string = req.body.domain;
+    const stage: string = req.body.stage;
+    console.log('connectionId: ', connectionId);
+    console.log('domain: ', domain);
+    console.log('stage: ', stage);
 
-    addClient(clientId, eid);
+    addClient(connectionId, eid);
 
     return res.status(200).send('connected');
 };

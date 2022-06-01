@@ -7,4 +7,7 @@ module.exports = (app) => {
     app.patch('/ws/disconnect',
         controller.disconnect);
 
+    app.post('/ws/send',
+        controller.testSend);
+
 };
