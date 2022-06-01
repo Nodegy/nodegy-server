@@ -1,7 +1,7 @@
 const connect = require('./connect');
 const disconnect = require('./disconnect');
 
-module.exports = {
+export {
     connect,
     disconnect
 };

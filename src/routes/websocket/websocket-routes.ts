@@ -1,5 +1,4 @@
-const controller = require('../../controllers/websocket');
-// const validators = require('../../middleware/validators/auth/index');
+const controller = require('../../controllers/websocket/index.ts');
 
 module.exports = (app) => {
     app.patch('/ws/connect',
