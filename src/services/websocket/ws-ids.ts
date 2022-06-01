@@ -1,21 +1,25 @@
 interface IClient {
-    clientIds: string[],
+    connectionIds: string[],
     userId: string,
 }
 
 const WsIds = class {
     clients: IClient[];
     constructor() {
-        this.clients = [{ userId: '', clientIds: [''] }];
+        this.clients = [];
     };
 
     addClient = (clientId: string, userId: string): void => {
         const clientIdx = this.clients.findIndex(i => i.userId === userId);
         if (clientIdx != -1) {
-            this.clients[clientIdx].clientIds.push(clientId);
+            if (!this.clients[clientIdx].connectionIds.includes(clientId)) {
+                this.clients[clientIdx].connectionIds.push(clientId);
+            }
+
         } else {
-            this.clients.push({ userId: userId, clientIds: [clientId] });
+            this.clients.push({ userId: userId, connectionIds: [clientId] });
         };
+        console.log('added client: ', this.clients);
     };
 
     getAllClients = (): IClient[] => {
@@ -34,10 +38,11 @@ const WsIds = class {
     removeClient = (clientId: string, userId: string): void => {
         const idx = this.clients.findIndex(client => client.userId === userId);
         if (idx != -1) {
-            this.clients[idx].clientIds.length > 1 ?
-                this.clients[idx].clientIds = this.clients[idx].clientIds.filter(item => item != clientId) :
-                this.clients.splice(idx, 1);
+            this.clients[idx].connectionIds.length > 1 ?
+                this.clients[idx].connectionIds = this.clients[idx].connectionIds.filter(item => item != clientId) :
+                this.clients[idx].connectionIds.includes(clientId) ? this.clients.splice(idx, 1) : null;
         }
+        console.log('removed client: ', this.clients);
     };
 };
 
