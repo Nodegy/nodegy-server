@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const { removeClient } = require('../../services/websocket/ws-ids');
 const service = 'websocket disconnect';
 module.exports = (req, res) => {

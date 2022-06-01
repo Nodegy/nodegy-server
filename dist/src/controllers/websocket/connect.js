@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const service = 'websocket connect';
 const { addClient } = require('../../services/websocket/ws-ids');
 module.exports = (req, res) => {

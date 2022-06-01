@@ -1,15 +1,10 @@
-interface IClient {
-    connectionIds: string[],
-    userId: string,
-}
-
 const WsIds = class {
-    clients: IClient[];
+    clients;
     constructor() {
         this.clients = [];
     };
 
-    addClient = (clientId: string, userId: string): void => {
+    addClient = (clientId, userId) => {
         const clientIdx = this.clients.findIndex(i => i.userId === userId);
         if (clientIdx != -1) {
             if (!this.clients[clientIdx].connectionIds.includes(clientId)) {
@@ -22,20 +17,20 @@ const WsIds = class {
         console.log('added client: ', this.clients);
     };
 
-    getAllClients = (): IClient[] => {
+    getAllClients = () => {
         return this.clients;
     };
 
-    getClient = (userId: string): IClient | null => {
+    getClient = (userId) => {
         const idx = this.clients.findIndex(client => client.userId === userId);
         return idx != -1 ? this.clients[idx] : null;
     };
 
-    getLoginStatus = (userId: string): boolean => {
+    getLoginStatus = (userId) => {
         return this.clients.filter(client => client.userId === userId).length > 0;
     };
 
-    removeClient = (clientId: string, userId: string): void => {
+    removeClient = (clientId, userId) => {
         const idx = this.clients.findIndex(client => client.userId === userId);
         if (idx != -1) {
             this.clients[idx].connectionIds.length > 1 ?
