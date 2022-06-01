@@ -34,6 +34,6 @@ module.exports = (app) => {
     require('./user/user-routes')(app);
     require('./user/webhook-routes')(app);
 
-    require('./websocket/websocket-routes.ts')(app);
+    require('./websocket/websocket-routes')(app);
 
 };

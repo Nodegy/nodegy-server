@@ -1,6 +1,6 @@
-const controller = require('../../controllers/websocket/index.ts');
+const controller = require('../../controllers/websocket/index');
 
-module.exports = (app) => {
+module.exports = (app: any) => {
     app.patch('/ws/connect',
         controller.connect);
 

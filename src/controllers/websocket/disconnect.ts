@@ -2,7 +2,7 @@ const { removeClient } = require('../../services/websocket/ws-ids');
 const service = 'websocket disconnect';
 import { Request, Response } from "express";
 
-module.exports = async (req: Request, res: Response) => {
+module.exports = (req: Request, res: Response) => {
     const eid: string = req.cookies.eid;
     const connectionId: string = req.body.connectionId;
 

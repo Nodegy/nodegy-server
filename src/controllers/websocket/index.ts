@@ -2,7 +2,7 @@ const connect = require('./connect');
 const disconnect = require('./disconnect');
 const testSend = require('./testSend');
 
-export {
+module.exports = {
     connect,
     disconnect,
     testSend
