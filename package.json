@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "build": "",
-    "start": "NODE_ENV=production && node src/server.js",
-    "dev": "NODE_ENV=development && nodemon src/server.js",
+    "start": "NODE_ENV=production node ./src/server.js",
+    "dev": "NODE_ENV=development nodemon ./src/server.js",
     "test": "mocha",
     "test:watch": "yarn run test -- --watch"
   },
