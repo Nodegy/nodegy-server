@@ -4,9 +4,9 @@ import { Request, Response } from "express";
 
 module.exports = async (req: Request, res: Response) => {
     const eid: string = req.cookies.eid;
-    const clientId: string = req.body.connectionId;
+    const connectionId: string = req.body.connectionId;
 
-    removeClient(clientId, eid);
+    removeClient(connectionId, eid);
 
     return res.status(200).send('disconnected');
 };
