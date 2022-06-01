@@ -1,6 +1,6 @@
 const controller = require('../../controllers/websocket/index');
 
-module.exports = (app: any) => {
+module.exports = (app) => {
     app.patch('/ws/connect',
         controller.connect);
 
