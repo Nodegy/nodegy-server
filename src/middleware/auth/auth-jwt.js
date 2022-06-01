@@ -3,7 +3,7 @@ const db = require('../../models');
 const User = db.user;
 const Role = db.role;
 
-verifyToken = (req, res, next) => {
+const verifyToken = (req, res, next) => {
     let token = req.cookies.accessToken;
 
     if (!token) {
@@ -25,7 +25,7 @@ verifyToken = (req, res, next) => {
     });
 };
 
-isAdmin = async (req, res, next) => {
+const isAdmin = async (req, res, next) => {
     try {
         const user = await User.findById(req.userId);
         if (!user) {
@@ -57,7 +57,7 @@ isAdmin = async (req, res, next) => {
 
 };
 
-isModerator = async (req, res, next) => {
+const isModerator = async (req, res, next) => {
     try {
         const user = await User.findById(req.userId);
         if (!user) {

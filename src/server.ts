@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('./utils/logger');
 const helmet = require('helmet');
 const { handleInternalError } = require('./utils/internal-handlers/index');
+import { Request, Response } from 'express';
 
 const initServer = async () => {
     const app = express();
@@ -26,7 +27,7 @@ const initServer = async () => {
 
     require('dotenv').config();
 
-    app.get('/', (req, res) => {
+    app.get('/', (req: Request, res: Response) => {
         res.json({ message: `Welcome to Nodegy.` });
     });
 
