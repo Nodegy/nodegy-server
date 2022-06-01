@@ -4,16 +4,10 @@ const service = 'websocket connect';
 const { addClient } = require('../../services/websocket/ws-ids');
 module.exports = (req, res) => {
     console.log('connecting:');
-    let jsonData;
+    console.log('req: ', req);
+    console.log('typeof: ', typeof req);
     try {
-        jsonData = JSON.parse(JSON.stringify(req));
-        console.log('req parsed: ', jsonData);
-    }
-    catch (err) {
-        console.log('err 1 in connect: ', err);
-    }
-    try {
-        const connectionId = jsonData.body.connectionId;
+        const connectionId = req.body.connectionId;
         console.log('connectionId: ', connectionId);
     }
     catch (err) {
