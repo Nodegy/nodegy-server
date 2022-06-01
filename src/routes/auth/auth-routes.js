@@ -19,4 +19,4 @@ module.exports = (app) => {
         [validators.signin],
         controller.signin);
 
-};
+}; 
