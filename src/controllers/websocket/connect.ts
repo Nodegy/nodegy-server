@@ -4,13 +4,27 @@ import { Request, Response } from "express";
 
 module.exports = (req: Request, res: Response) => {
     console.log('connecting:');
-    console.log('req: ', req);
+    let jsonData;
+    try {
+        jsonData = JSON.parse(JSON.stringify(req));
+        console.log('req parsed: ', jsonData);
+    } catch (err) {
+        console.log('err 1 in connect: ', err);
+    }
+
+
+    try {
+        const connectionId: string = jsonData.body.connectionId;
+        console.log('connectionId: ', connectionId);
+    } catch (err) {
+        console.log('err 2 in connect: ', err);
+    }
     // const eid: string = req.cookies.eid;
     // console.log('eid: ', eid);
-    const connectionId: string = req.body.connectionId;
+
     // const domain: string = Object.keys(req.body).includes('domain') ? req.body.domain : null;
     // const stage: string = Object.keys(req.body).includes('stage') ? req.body.stage : null;
-    console.log('connectionId: ', connectionId);
+
     // console.log('domain: ', domain);
     // console.log('stage: ', stage);
 
