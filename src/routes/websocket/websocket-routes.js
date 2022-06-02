@@ -1,10 +1,10 @@
 const controller = require('../../controllers/websocket/index');
 
 module.exports = (app) => {
-    app.patch('/ws/connect',
+    app.post('/ws/connect',
         controller.connect);
 
-    app.patch('/ws/disconnect',
+    app.post('/ws/disconnect',
         controller.disconnect);
 
     app.post('/ws/send',
