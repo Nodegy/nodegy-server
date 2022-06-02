@@ -21,7 +21,7 @@ const initServer = async () => {
     app.use(cookieParser());
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
-    // app.use(morgan('dev'));
+    app.use(morgan('dev'));
     app.use(helmet());
 
     require('dotenv').config();

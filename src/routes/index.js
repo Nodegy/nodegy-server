@@ -1,6 +1,5 @@
 module.exports = (app) => {
     app.use(function (req, res, next) {
-        console.log('req: ', req)
         res.set('Access-Control-Allow-Origin', process.env.NODE_ENV === 'production' ? process.env.PROD_ORIGIN : process.env.LOCAL_ORIGIN,);
         res.set(
             'Access-Control-Allow-Headers',
