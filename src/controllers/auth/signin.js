@@ -82,6 +82,7 @@ const generatePayload = async (user) => {
             username: user.username,
             email: user.email,
             roles: authorities,
+            eid: user.eid
         },
         preferences: {
             timezone: user.preferences.timezone || null,
