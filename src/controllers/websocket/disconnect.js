@@ -1,4 +1,4 @@
-const { removeClient } = require('../../services/websocket/ws-ids');
+// const { removeClient } = require('../../services/websocket/ws-ids');
 const service = 'websocket disconnect';
 
 module.exports = (req, res) => {
@@ -8,5 +8,5 @@ module.exports = (req, res) => {
     // removeClient(connectionId, eid);
     console.log('disconnected')
 
-    return res.status(200).send('disconnected');
+    return res.status(200).send({ status: 'disconnected' });
 };
