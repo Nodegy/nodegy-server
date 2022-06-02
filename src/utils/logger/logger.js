@@ -27,7 +27,7 @@ let defineTransports = process.env.NODE_ENV === 'production' ? [
 ] : [
     new transports.Console({
         format: combine(
-            // colorize(),
+            colorize(),
             errors({ stack: true }),
             timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
             logFormat

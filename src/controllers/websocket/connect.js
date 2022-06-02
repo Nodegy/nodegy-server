@@ -5,8 +5,8 @@ module.exports = (req, res) => {
     console.log('connecting:');
     // console.log('req: ', req);
     // console.log('typeof: ', typeof req);
-    const body = req.body;
-    console.log('BODY TEST: ', body)
+    // const body = req.body;
+    console.log('BODY TEST: ', req.body)
     const connectionId = req.body.connectionId;
 
     console.log('connectionId: ', connectionId);
