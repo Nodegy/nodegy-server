@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/JP3tri3/wio_mevn#readme",
   "dependencies": {
+    "aws4": "^1.11.0",
     "axios": "^0.21.4",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
