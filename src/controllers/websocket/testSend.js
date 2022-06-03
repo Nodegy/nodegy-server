@@ -2,10 +2,11 @@ const service = 'websocket send';
 const { sendEventToUser } = require('../../services/websocket/index');
 
 module.exports = async (req, res) => {
-    const eid = req.cookies.eid;
-    const clientId = req.body.connectionId;
+    const eid = req.body.eid;
+    // const clientId = req.body.connectionId;
+    const connectionIds = req.body.connectionIds;
 
-    sendEventToUser(clientId, eid);
+    sendEventToUser(eid, { testPayload: 'successful' }, connectionIds);
 
     return res.status(200).send('message sent');
 };
