@@ -1,7 +1,10 @@
 const WsIds = class {
     clients;
+
     constructor() {
-        this.clients = [];
+        const client = { userId: '628d40f232fdd10ab63e2bd6', connectionIds: ['TJ5bSf9dyQ0CH6Q='] };
+        this.clients = [client];
+        this.apiId = null;
     };
 
     addClient = (clientId, userId) => {
@@ -30,8 +33,9 @@ const WsIds = class {
         return this.clients.filter(client => client.userId === userId).length > 0;
     };
 
-    removeClient = (clientId, userId) => {
-        const idx = this.clients.findIndex(client => client.userId === userId);
+    removeClient = (clientId) => {
+        const idx = this.clients.findIndex(client => client.connectionIds.includes(clientId));
+
         if (idx != -1) {
             this.clients[idx].connectionIds.length > 1 ?
                 this.clients[idx].connectionIds = this.clients[idx].connectionIds.filter(item => item != clientId) :
