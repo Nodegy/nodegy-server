@@ -2,7 +2,7 @@ const WsIds = class {
     clients;
 
     constructor() {
-        const client = { userId: '628d40f232fdd10ab63e2bd6', connectionIds: ['TJ5bSf9dyQ0CH6Q='] };
+        const client = { userId: '', connectionIds: [] };
         this.clients = [client];
         this.apiId = null;
     };
